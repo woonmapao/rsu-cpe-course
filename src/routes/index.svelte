@@ -6,6 +6,8 @@
     let mode = true;
     let innerWidth = 0;
 
+    let mat136 = false;
+
     $: condition = innerWidth > 1870 && innerWidth < 1930;
 </script>
 
@@ -33,6 +35,7 @@
 <!-- <button class="btn-main" on:click={() => (mode = !mode)}>เปลี่ยนโหมด</button> -->
 <Button text="เปลี่ยนโหมด" on:click={() => (mode = !mode)} />
 
+<div class="sidenav-left">secret</div>
 {#if condition}
     {#if mode}
         <Tree />
@@ -57,5 +60,18 @@
     .container {
         margin-bottom: 0;
         max-width: 60%;
+    }
+
+    .sidenav-left {
+        background: #eee;
+        height: 800px;
+        left: 0;
+        overflow-x: hidden;
+        padding: 8px 0;
+        position: fixed;
+        transform: translateY(-50%);
+        top: 50%;
+        width: 160px;
+        z-index: 1;
     }
 </style>
